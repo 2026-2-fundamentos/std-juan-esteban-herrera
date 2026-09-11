@@ -1,0 +1,13 @@
+Analytics refers to the systematic computational analysis of data 
+or statistics, typically for the purpose of gaining insights, 
+making informed decisions, and discovering patterns or trends. It 
+encompasses a broad range of techniques and methodologies aimed at
+extracting meaningful information from raw data, often involving 
+processes such as data collection, cleaning, transformation, 
+modeling, and interpretation. Analytics can be applied across 
+various domains including business, finance, healthcare, marketing, 
+and science, among others, to uncover hidden patterns, predict 
+future outcomes, optimize processes, and drive strategic 
+decision-making. It relies heavily on mathematical and statistical 
+principles, as well as computational tools and technologies, to 
+derive actionable insights from complex datasets.

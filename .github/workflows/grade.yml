@@ -1,0 +1,287 @@
+name: Grade activities
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  grade:
+    name: Grade all activities
+    runs-on: ubuntu-latest
+
+    steps:
+      # ---------------------------------------------------------
+      # Environment
+      # ---------------------------------------------------------
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          fi
+
+          python -m pip install pytest
+
+      # ---------------------------------------------------------
+      # Grading
+      # ---------------------------------------------------------
+
+      - name: Grade all activities
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import sys
+
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+
+          # -----------------------------------------------------
+          # Directories
+          # -----------------------------------------------------
+
+          repository_root = Path.cwd()
+          grading_directory = repository_root / "grading"
+          logs_directory = grading_directory / "logs"
+
+          grading_directory.mkdir(exist_ok=True)
+          logs_directory.mkdir(exist_ok=True)
+
+
+          # -----------------------------------------------------
+          # Activity discovery
+          # -----------------------------------------------------
+
+          activity_prefixes = ("PRE_", "LAB_")
+
+          activities = sorted(
+              (
+                  directory
+                  for directory in repository_root.iterdir()
+                  if directory.is_dir()
+                  and directory.name.startswith(activity_prefixes)
+                  and (directory / "tests").is_dir()
+              ),
+              key=lambda directory: directory.name,
+          )
+
+
+          # -----------------------------------------------------
+          # Activity grading
+          # -----------------------------------------------------
+
+          results = {}
+
+          for activity in activities:
+              print()
+              print("=" * 70)
+              print(f"Grading {activity.name}")
+              print("=" * 70)
+
+              source_directory = activity / "src"
+              tests_directory = activity / "tests"
+
+              environment = os.environ.copy()
+              current_pythonpath = environment.get("PYTHONPATH", "")
+
+              if current_pythonpath:
+                  environment["PYTHONPATH"] = (
+                      str(source_directory)
+                      + os.pathsep
+                      + current_pythonpath
+                  )
+              else:
+                  environment["PYTHONPATH"] = str(source_directory)
+
+              completed_process = subprocess.run(
+                  [
+                      sys.executable,
+                      "-m",
+                      "pytest",
+                      str(tests_directory),
+                      "--quiet",
+                  ],
+                  cwd=repository_root,
+                  env=environment,
+                  text=True,
+                  stdout=subprocess.PIPE,
+                  stderr=subprocess.STDOUT,
+                  check=False,
+              )
+
+              output = completed_process.stdout
+              print(output)
+
+              log_file = logs_directory / f"{activity.name}.txt"
+              log_file.write_text(output, encoding="utf-8")
+
+              passed = completed_process.returncode == 0
+
+              results[activity.name] = {
+                  "passed": passed,
+                  "outcome": "success" if passed else "failure",
+                  "exit_code": completed_process.returncode,
+                  "log": f"logs/{activity.name}.txt",
+              }
+
+
+          # -----------------------------------------------------
+          # Consolidated result
+          # -----------------------------------------------------
+
+          passed_count = sum(
+              result["passed"]
+              for result in results.values()
+          )
+
+          total_count = len(results)
+
+          grading_result = {
+              "repository": os.environ["GITHUB_REPOSITORY"],
+              "commit_sha": os.environ["GITHUB_SHA"],
+              "run_id": int(os.environ["GITHUB_RUN_ID"]),
+              "run_number": int(os.environ["GITHUB_RUN_NUMBER"]),
+              "created_at": datetime.now(timezone.utc).isoformat(),
+              "activities": results,
+              "passed": passed_count,
+              "total": total_count,
+              "all_passed": (
+                  total_count > 0
+                  and passed_count == total_count
+              ),
+          }
+
+          result_file = grading_directory / "grading-results.json"
+
+          result_file.write_text(
+              json.dumps(grading_result, indent=2),
+              encoding="utf-8",
+          )
+
+
+          # -----------------------------------------------------
+          # GitHub Actions summary
+          # -----------------------------------------------------
+
+          summary_file = Path(os.environ["GITHUB_STEP_SUMMARY"])
+
+          with summary_file.open("a", encoding="utf-8") as file:
+              file.write("# Grading results\n\n")
+
+              if not results:
+                  file.write(
+                      "❌ No valid activity directories were found.\n\n"
+                  )
+                  file.write(
+                      "An activity must start with `PRE_` or `LAB_` "
+                      "and contain `src/` and `test_src/`.\n"
+                  )
+              else:
+                  file.write("| Activity | Result |\n")
+                  file.write("|---|---|\n")
+
+                  for activity, result in results.items():
+                      status = (
+                          "✅ Passed"
+                          if result["passed"]
+                          else "❌ Failed"
+                      )
+
+                      file.write(
+                          f"| `{activity}` | {status} |\n"
+                      )
+
+                  file.write("\n")
+                  file.write(
+                      f"**Passed: {passed_count} "
+                      f"of {total_count} activities**\n"
+                  )
+
+
+          # -----------------------------------------------------
+          # Console result
+          # -----------------------------------------------------
+
+          print()
+          print("=" * 70)
+          print("Consolidated result")
+          print("=" * 70)
+          print(json.dumps(grading_result, indent=2))
+          PY
+
+      # ---------------------------------------------------------
+      # Artifact
+      # ---------------------------------------------------------
+
+      - name: Upload grading results
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: grading-${{ github.sha }}
+          path: grading/
+          retention-days: 90
+          if-no-files-found: error
+
+      # ---------------------------------------------------------
+      # Final workflow status
+      # ---------------------------------------------------------
+
+      - name: Set final workflow status
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+
+          from pathlib import Path
+
+
+          result_file = Path("grading/grading-results.json")
+
+          if not result_file.exists():
+              print("The grading result was not generated.")
+              sys.exit(1)
+
+          grading_result = json.loads(
+              result_file.read_text(encoding="utf-8")
+          )
+
+          if grading_result["total"] == 0:
+              print("No valid activities were found.")
+              sys.exit(1)
+
+          failed_activities = [
+              activity
+              for activity, result
+              in grading_result["activities"].items()
+              if not result["passed"]
+          ]
+
+          if failed_activities:
+              print("The following activities failed:")
+
+              for activity in failed_activities:
+                  print(f"- {activity}")
+
+              sys.exit(1)
+
+          print("All activities passed.")
+          PY

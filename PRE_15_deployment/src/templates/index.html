@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>PricePredictor</title>
+
+  <style>
+    .center-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      padding-left: 10px;
+    }
+
+    header {
+      font-size: 25px;
+    }
+
+    div {
+      padding-left: 2%;
+    }
+
+    .submit-button {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h2
+      style="text-align: center; background-color: #505050;color: white; padding: 40px;">
+      House Price Estimator
+    </h2>
+
+    <h4 style="text-align: center;">
+      Enter the details of the house you want to estimate the price for:
+    </h4>
+
+  </header>
+
+
+  <form id='myDialog' method="POST" class="center-form">
+
+    <input class="submit-button" type="submit" value="Submit"> <br><br>
+
+    <div>
+
+      <label for="fname">Bedrooms:</label> <br>
+      <input type="text" id="bedrooms" name="bedrooms" value="3"><br><br>
+
+      <label for="fname">Bathrooms:</label> <br>
+      <input type="text" id="bathrooms" name="bathrooms" value="1"><br><br>
+
+      <label for="fname">Living Space (sqft):</label> <br>
+      <input type="text" id="sqft_living" name="sqft_living"
+        value="1180"><br><br>
+
+      <label for="fname">Lot size (sqft):</label> <br>
+      <input type="text" id="sqft_lot" name="sqft_lot" value="5650"><br><br>
+
+      <label for="fname">Floors:</label> <br>
+      <input type="text" id="floors" name="floors" value="1"><br><br>
+
+      <label for="fname">Waterfront:</label> <br>
+      <input type="radio" id="waterfront" name="waterfront" value="Yes" checked>
+      <label for="yes">Yes</label><br>
+      <input type="radio" id="waterfront" name="waterfront" value="No">
+      <label for="no">No</label><br> <br>
+
+      <label for="fname">Condition:</label> <br>
+      <input type="radio" id="condition_1" name="condition" value="1" checked>
+      <label for="1">1 - worst</label><br>
+      <input type="radio" id="condition_1" name="condition" value="2">
+      <label for="2">2</label><br>
+      <input type="radio" id="condition_1" name="condition" value="3">
+      <label for="3">3</label><br>
+      <input type="radio" id="condition_1" name="condition" value="4">
+      <label for="4">4</label><br>
+      <input type="radio" id="condition_1" name="condition" value="5">
+      <label for="5">5 - best</label><br>
+
+    </div>
+
+    <div class="center-text">
+      <br>
+      <p><strong>Estimated Price:</strong></p>
+      <p> {{ prediction }} </p>
+    </div>
+
+
+  </form>
+
+
+
+</body>
+
+</html>
