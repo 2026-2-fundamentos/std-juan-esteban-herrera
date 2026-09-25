@@ -1,0 +1,1 @@
+Image data produced by the browser at the phone server is converted into a bitmapped image that is sent to the handset for display . '

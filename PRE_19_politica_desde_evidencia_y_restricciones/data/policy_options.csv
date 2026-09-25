@@ -1,0 +1,4 @@
+policy_id,policy,grade_1_slots,grade_2_slots,grade_3_slots,value_grade_1,value_grade_2,value_grade_3,total_slots,min_slots_per_grade
+P0,reparto_igualitario,14,13,13,120,160,90,40,8
+P1,solo_mayor_beneficio,8,24,8,120,160,90,40,8
+P2,prioridad_con_piso,12,20,8,120,160,90,40,8

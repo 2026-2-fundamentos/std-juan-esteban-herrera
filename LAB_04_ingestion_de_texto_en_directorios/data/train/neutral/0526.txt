@@ -1,0 +1,1 @@
+Typically , the transmission power level can be decreased when the interference noise is above a predefined value 

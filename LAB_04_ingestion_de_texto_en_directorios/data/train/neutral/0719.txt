@@ -1,0 +1,1 @@
+Includes company and brand share data by category , as well as distribution channel data 
