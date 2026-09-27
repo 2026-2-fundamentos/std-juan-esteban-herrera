@@ -1,1 +1,0 @@
-The platform is based built on Intel s second-generation MID platform , called Moorestown 

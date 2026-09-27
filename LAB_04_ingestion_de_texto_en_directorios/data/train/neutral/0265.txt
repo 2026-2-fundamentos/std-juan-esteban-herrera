@@ -1,1 +1,0 @@
-The maximum grade of the veneer yield is calculated , based on the dimensions and grades of the veneer products , as well as by iterating the places of the peeling axes and simulating the peeling process 

@@ -1,1 +1,0 @@
-The tests , conducted at Nokia Siemens ' LTE center of competence in Espoo , Finland , follow the company 's production start of LTE-ready Flexi Multiradio Base Stations for the 800 MHz band in April 2010 , and complement earlier tests with Nokia on the 2100 MHz and 2600 MHz bands 

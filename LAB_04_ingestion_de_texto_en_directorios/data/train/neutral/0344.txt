@@ -1,1 +1,0 @@
-The hosting mobile terminal guides information flow between itself , the participating terminals , and optionally , with network servers that may assist the hosting mobile terminal 

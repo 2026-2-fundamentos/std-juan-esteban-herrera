@@ -1,1 +1,0 @@
-A filter is used to pre-process packets to determine if they need to be further processed by the processor of the network device 

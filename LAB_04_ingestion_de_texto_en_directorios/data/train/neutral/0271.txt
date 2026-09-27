@@ -1,1 +1,0 @@
-The Web-Marela application handles invitations to quote , quote comparisons , agreements , purchases , invoice inspections , inventory management , and deliveries 

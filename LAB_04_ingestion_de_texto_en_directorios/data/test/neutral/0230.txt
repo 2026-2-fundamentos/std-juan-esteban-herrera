@@ -1,1 +1,0 @@
-The Diameter Protocol is developed according to the standards IETF RFC 3588 and IETF RFC 3539 

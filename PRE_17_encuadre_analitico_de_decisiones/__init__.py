@@ -1,1 +1,0 @@
-"""Encuadre analítico de decisiones."""

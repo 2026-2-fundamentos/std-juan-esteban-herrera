@@ -1,1 +1,0 @@
-Vaisala 's Present Weather Detector measures visibility up to 20 km , as well as precipitation type and intensity 
