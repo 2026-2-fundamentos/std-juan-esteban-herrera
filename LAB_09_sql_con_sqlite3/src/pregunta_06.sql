@@ -1,0 +1,29 @@
+--
+--  La base de datos tiene tres tablas:
+--
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
+--
+--  Escriba una consulta que retorne todas las columnas de los registros de
+--  la tabla `tbl1` en los que `K0` es igual a `A`, ordenados por fecha
+--  (`c14`) de la más antigua a la más reciente.
+--
+--  Resultado esperado:
+--
+--    K0  K1     c12  c13         c14   c15   c16
+--  0  A  20  938.16  300  2016-09-12  0.19  BECB
+--  1  A  30  135.80  900  2017-01-26  0.23  EGAB
+--  2  A  18  142.99  100  2017-02-12  0.48  GGFD
+--  3  A  26  456.47  400  2018-01-28  0.11  FGED
+--  4  A   6  391.42  300  2018-05-15  0.22  BFGB
+--  5  A  10  816.51  600  2019-04-25  0.40  DAGC
+--
+--  Escriba su consulta debajo de esta línea.
+--

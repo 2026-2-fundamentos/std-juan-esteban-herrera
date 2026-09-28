@@ -1,0 +1,1 @@
+The board machine , which will have a wire width of 6.25 m and a design speed of 900 m-min , will produce close to 1,400 tonnes of folding boxboard per day 

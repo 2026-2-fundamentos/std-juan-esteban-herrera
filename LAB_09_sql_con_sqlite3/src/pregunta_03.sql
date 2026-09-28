@@ -1,0 +1,28 @@
+--
+--  La base de datos tiene tres tablas:
+--
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
+--
+--  Escriba una consulta que retorne los cinco primeros registros de la
+--  tabla `tbl1`, con todas sus columnas, ordenados por fecha (`c14`) de la
+--  más antigua a la más reciente.
+--
+--  Resultado esperado:
+--
+--    K0  K1     c12  c13         c14   c15   c16
+--  0  A  20  938.16  300  2016-09-12  0.19  BECB
+--  1  C  15  370.58  900  2016-10-01  0.11  GCDD
+--  2  E  22  118.77  900  2016-10-29  0.32  GEFE
+--  3  B  12  999.72  800  2016-11-09  0.26  FCGD
+--  4  E  14  832.44  800  2016-11-22  0.39  EGFD
+--
+--  Escriba su consulta debajo de esta línea.
+--

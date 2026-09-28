@@ -1,0 +1,24 @@
+--
+--  La base de datos tiene tres tablas:
+--
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
+--
+--  Escriba una consulta que cuente cuántos registros de la tabla `tbl1`
+--  tienen su fecha (`c14`) en el año 2018. El resultado tiene dos columnas:
+--  el año y la cantidad.
+--
+--  Resultado esperado:
+--
+--     YEAR  CANT
+--  0  2018     6
+--
+--  Escriba su consulta debajo de esta línea.
+--

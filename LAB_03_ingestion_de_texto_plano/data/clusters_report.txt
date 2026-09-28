@@ -1,0 +1,68 @@
+Cluster  Cantidad de     Porcentaje de   Principales palabras clave     
+         palabras clave  palabras clave
+         
+---------------------------------------------------------------------------------------------------------------------
+   1     105             15,9 %          maximum power point tracking, fuzzy-logic based control, photo voltaic (pv), 
+                                         photo-voltaic  system,  differential   evolution   algorithm,   evolutionary
+                                         algorithm, double-fed induction generator (dfig), ant  colony  optimisation, 
+                                         photo voltaic array, firefly algorithm, partial shade.
+
+   2     102             15,4 %          support vector machine,  long  short-term  memory,  back-propagation  neural
+                                         network,  convolution  neural  network,  speed   wind   prediction,   energy
+                                         consumption,   wind   power   forecasting,   extreme    learning    machine,
+                                         recurrent-neural-network (rnn), radial basis function (rbf)  networks,  wind 
+                                         farm.
+
+   3     89              13,4 %          smart grid, wind power, reinforcement learning,  energy  management,  energy 
+                                         efficiency, solar energy, deep reinforcement learning, demand-response (dr),
+                                         internet of things, energy harvester, q-learning.
+
+   4     60              9,1 %           wind   turbine,   fault    diagnosis,    biodiesel,    failure    detection,
+                                         response-surface methodology, condition monitoring, load forecasting, energy
+                                         consumption forecast,  anomalies  detection,  optimization-based  algorithm, 
+                                         supervisory control and data acquisition.
+
+   5     52              7,9 %           electric vehicle, lithium-ion batteries, state of charge, state  of  health,
+                                         hybrid-electric vehicle, energy  management  strategies,  energy  management 
+                                         system, remaining useful life, battery management system, transfer learning, 
+                                         hybrid energy storage.
+
+   6     51              7,7 %           particle  swarm  optimization,  distribute  generation,  solar   irradiance,
+                                         artificial  bee   colonies,   energy   storage   systems,   bat   algorithm,
+                                         gravitational search algorithm, distributed  system,  multi-objective  swarm
+                                         optimization  (mopso),  optimal  power-flow  (opf),  load-frequency  control
+
+   7     42              6,3 %           multi-objective   optimization,   energy   storage,    economic    dispatch,
+                                         non-dominated  sorting  genetic  algorithm,   sensitive   analysis,   hybrid
+                                         renewable energy source, plug-in electric vehicle, combined-heat and  power,
+                                         multi-objective genetic algorithm, unit-commitment, dc-dc converters.
+
+   8     38              5,7 %           genetic algorithm, demand-side  management,  energy-saving,  hybrid  electric 
+                                         system (hes), wind turbine blade, data-driven modelling, simulated annealing, 
+                                         solar forecasting, geographic information system,  renewable  energy  system,
+                                         cogeneration.
+                                         
+   9     35              5,3 %           anfis,   global   solar   irradiance,  solar  irradiance  forecast,   genetic
+                                         programing,   islanding   detection,   expert  system,  distributed networks, 
+                                         evolutionary computation,  wavelet-based  neural  network,   root mean square 
+                                         errors, virtual power plant.
+
+   10    27              4,1 %           micro grid,  multi-agent  systems,  distributed  energy  resource,  batteries 
+                                         energy storage system, dc micro grid, pitch-control,  droop  control,  hybrid 
+                                         ac/dc microgrid, voltage regulation, superconducting magnetic energy storage, 
+                                         distributed-control.
+
+   11    22              3,3 %           hydrogen,  biochar,  biomass,  biogas,  microbial  fuel  cell,  gasification, 
+                                         biofuel, ethanol, engine performance, pyrolysis, anaerobic digester.
+
+   12    22              3,3 %           state of charge (soc) estimation,  radial  basis  function,  short-term  load
+                                         forecasting,  computational  fluid  dynamics,  generalized-regression  neural
+                                         network,  monte-carlo   simulation,   multiple   linear   regression,   power
+                                         generation,   nonlinear   auto-regressive   exogenous   (narx)  model  neural
+                                         networks, surrogate model, extreme gradient boosting.
+
+   13    17              2,6 %           pem   fuel   cell,   solid-oxide  fuel  cell,  deep-belief  networks,  energy
+                                         optimisation, particles-size  distributions,  biomass  gasification,  exergy, 
+                                         battery    management,    hydrogen     production,     numeric    simulation, 
+                                         system-identification.
+

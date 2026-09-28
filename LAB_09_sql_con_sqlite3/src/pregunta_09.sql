@@ -1,0 +1,23 @@
+--
+--  La base de datos tiene tres tablas:
+--
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
+--
+--  Escriba una consulta que retorne el registro de la tabla `tbl2` con el
+--  menor valor de la columna `c21`.
+--
+--  Resultado esperado:
+--
+--     K1     c21  c22         c23   c24    c25
+--  0  29  101.11  100  2017-11-17  0.42  MV-CB
+--
+--  Escriba su consulta debajo de esta línea.
+--

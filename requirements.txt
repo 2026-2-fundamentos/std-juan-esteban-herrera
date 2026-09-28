@@ -17,11 +17,13 @@ nltk<4
 numpy<2
 pandas<2.3
 plotly<6
+prefect==3.4.25
 pulp==3.3.0
 pyarrow>=18,<21
 pyparsing<3.1
 pytest<9
 requests<2.33
+schedule==1.2.2
 scikit-learn<1.6
 scipy==1.13.1
 seaborn<0.13

@@ -1,0 +1,28 @@
+--
+--  La base de datos tiene tres tablas:
+--
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
+--
+--  Escriba una consulta que retorne, para cada letra de la columna `K0` de
+--  la tabla `tbl1`, el promedio de la columna `c12`, considerando solamente
+--  los registros en los que `c13` es mayor que 400.
+--
+--  Resultado esperado:
+--
+--    K0    avg(c12)
+--  0  A  476.155000
+--  1  B  536.523333
+--  2  C  490.830000
+--  3  D  709.530000
+--  4  E  474.825000
+--
+--  Escriba su consulta debajo de esta línea.
+--

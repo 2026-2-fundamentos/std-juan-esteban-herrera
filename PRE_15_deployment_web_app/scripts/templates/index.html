@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estimador de precio de vivienda</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 42rem; }
+      fieldset { border: 1px solid #bbb; margin-bottom: 1rem; padding: 1rem; }
+      label { display: block; margin-top: .7rem; }
+      input, select { box-sizing: border-box; margin-top: .2rem; padding: .4rem; width: 100%; }
+      button { background: #176b45; border: 0; color: white; cursor: pointer; padding: .7rem 1rem; }
+      .result { background: #e8f4ed; margin-top: 1rem; padding: 1rem; }
+      .error { background: #fdecec; margin-top: 1rem; padding: 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Estimador de precio de vivienda</h1>
+    <p>Ingrese las características disponibles para obtener la predicción del modelo ya entrenado.</p>
+    <form method="post">
+      <fieldset>
+        <legend>Características de la vivienda</legend>
+        <label>Habitaciones<input name="bedrooms" type="number" min="0" value="3" required></label>
+        <label>Baños<input name="bathrooms" type="number" min="0" step="0.5" value="2" required></label>
+        <label>Área habitable (pies²)<input name="sqft_living" type="number" min="1" value="1800" required></label>
+        <label>Área del lote (pies²)<input name="sqft_lot" type="number" min="1" value="2200" required></label>
+        <label>Pisos<input name="floors" type="number" min="1" step="0.5" value="1" required></label>
+        <label>Frente al agua
+          <select name="waterfront"><option value="no">No</option><option value="yes">Sí</option></select>
+        </label>
+        <label>Condición
+          <select name="condition">
+            <option value="1">1 — muy baja</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5 — muy alta</option>
+          </select>
+        </label>
+      </fieldset>
+      <button type="submit">Estimar precio</button>
+    </form>
+    {% if prediction is not none %}<p class="result"><strong>Precio estimado:</strong> {{ prediction }}</p>{% endif %}
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  </body>
+</html>

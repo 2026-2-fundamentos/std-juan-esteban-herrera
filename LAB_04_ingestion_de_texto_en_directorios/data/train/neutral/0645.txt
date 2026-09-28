@@ -1,0 +1,1 @@
+BasWare Order Matching automatically matches purchase invoices with approved purchase orders 

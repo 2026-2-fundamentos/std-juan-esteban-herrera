@@ -1,0 +1,27 @@
+--
+--  La base de datos tiene tres tablas:
+--
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
+--
+--  Escriba una consulta que retorne, para cada letra de la columna `K0` de
+--  la tabla `tbl1`, el valor máximo y el valor mínimo de la columna `c12`.
+--
+--  Resultado esperado:
+--
+--    K0  MAX(c12)  min(C12)
+--  0  A    938.16    135.80
+--  1  B    999.72    283.40
+--  2  C    822.81    267.42
+--  3  D    756.37    317.77
+--  4  E    832.44    118.77
+--
+--  Escriba su consulta debajo de esta línea.
+--

@@ -1,0 +1,5 @@
+policy_id,policy,contacts,expected_conversion,contact_cost,net_value_per_conversion,high_contact_share,capacity_limit,max_high_contact_share
+P0,no_contactar,0,0.000,0,180,0.00,1000,0.35
+P1,solo_clientes_con_probabilidad_alta,600,0.180,3,180,0.20,1000,0.35
+P2,ampliar_a_probabilidad_media,1000,0.115,3,180,0.32,1000,0.35
+P3,contactar_toda_la_lista,1250,0.100,3,180,0.42,1000,0.35
